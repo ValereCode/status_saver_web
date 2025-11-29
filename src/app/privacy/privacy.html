@@ -1,0 +1,128 @@
+<!-- Privacy Policy Page -->
+<div class="privacy-page">
+  <!-- Hero Section -->
+  <section class="privacy-hero">
+    <div class="container">
+      <div class="privacy-hero-content">
+        <div class="privacy-badge">
+          <span>🔒</span>
+          <span>Your Privacy Matters</span>
+        </div>
+
+        <h1 class="privacy-title">Privacy Policy</h1>
+
+        <p class="privacy-subtitle">
+          We believe privacy policies should be <strong>readable by humans</strong>, not just lawyers.
+          So we wrote ours in plain English. No legal jargon, no hidden clauses.
+        </p>
+
+        <div class="privacy-meta">
+          <span class="privacy-updated">📅 Last updated: {{ lastUpdated }}</span>
+          <span class="privacy-reading-time">⏱️ 5 min read</span>
+        </div>
+      </div>
+
+      <!-- Quick Summary Card -->
+      <div class="privacy-summary-card">
+        <h3>🎯 The TL;DR</h3>
+        <ul class="privacy-summary-list">
+          <li>✅ We don't collect your personal data</li>
+          <li>✅ Everything stays on YOUR device</li>
+          <li>✅ We don't sell your data (we don't have it!)</li>
+          <li>✅ No ads, no trackers, no BS</li>
+        </ul>
+        <p class="privacy-summary-footer">
+          But if you want the full story, keep reading 👇
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy Sections -->
+  <section class="privacy-content">
+    <div class="container">
+      <div class="privacy-sections">
+        @for (section of sections; track section.id) {
+        <div class="privacy-section" [class.privacy-section--expanded]="isSectionExpanded(section.id)"
+          [class.privacy-section--highlight]="section.highlight">
+          <button class="privacy-section-header" (click)="toggleSection(section.id)"
+            [attr.aria-expanded]="isSectionExpanded(section.id)">
+            <div class="privacy-section-header-content">
+              <span class="privacy-section-icon">{{ section.icon }}</span>
+              <div class="privacy-section-title-group">
+                <h2 class="privacy-section-title">{{ section.title }}</h2>
+                <p class="privacy-section-tldr">
+                  <strong>TL;DR:</strong> {{ section.tldr }}
+                </p>
+              </div>
+            </div>
+            <span class="privacy-section-toggle">
+              {{ isSectionExpanded(section.id) ? '−' : '+' }}
+            </span>
+          </button>
+
+          @if (isSectionExpanded(section.id)) {
+          <div class="privacy-section-body">
+            @for (paragraph of section.content; track $index) {
+            <p [innerHTML]="paragraph"></p>
+            }
+          </div>
+          }
+        </div>
+        }
+      </div>
+
+      <!-- Trust Indicators -->
+      <div class="privacy-trust-section">
+        <h3>🏆 Our Commitment to You</h3>
+        <div class="privacy-trust-grid">
+          <div class="privacy-trust-card">
+            <div class="privacy-trust-icon">🔒</div>
+            <h4>Privacy First</h4>
+            <p>Built from the ground up with your privacy in mind</p>
+          </div>
+          <div class="privacy-trust-card">
+            <div class="privacy-trust-icon">📖</div>
+            <h4>Transparent</h4>
+            <p>No hidden terms or sneaky clauses</p>
+          </div>
+          <div class="privacy-trust-card">
+            <div class="privacy-trust-icon">🤝</div>
+            <h4>Trustworthy</h4>
+            <p>We do what we say, and say what we do</p>
+          </div>
+          <div class="privacy-trust-card">
+            <div class="privacy-trust-icon">💚</div>
+            <h4>User-Focused</h4>
+            <p>Your experience matters more than our profits</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back to Top Button -->
+      <button class="privacy-back-to-top" (click)="scrollToTop()">
+        ↑ Back to Top
+      </button>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="privacy-cta">
+    <div class="container">
+      <div class="privacy-cta-content">
+        <h2>Still Have Questions?</h2>
+        <p>We're here to help! Reach out and we'll get back to you within 24-48 hours.</p>
+        <div class="privacy-cta-buttons">
+          <a href="mailto:privacy@statussaver.app" class="btn btn-primary">
+            <span>📧</span>
+            <span>Contact Us</span>
+          </a>
+          <a routerLink="/" class="btn btn-secondary">
+            <span>←</span>
+            <span>Back to Home</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

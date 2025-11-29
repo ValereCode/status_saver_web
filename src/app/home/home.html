@@ -1,0 +1,118 @@
+<!-- ============================================
+     StatusSaver Landing Page
+     ============================================ -->
+
+<!-- Header / Navigation -->
+<header class="header">
+  <div class="container">
+    <nav class="nav">
+      <a routerLink="/" class="logo">
+        <div class="logo-icon">📥</div>
+        <span>StatusSaver</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#how-it-works" class="nav-link">How it Works</a></li>
+        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+      </ul>
+
+      <a href="#download" class="btn btn-primary">Download App</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge badge">
+          <span>✨</span>
+          <span>New Version 2.0 Available</span>
+        </div>
+
+        <h1 class="hero-title">
+          Save WhatsApp Statuses<br>
+          <span class="highlight">Instantly & Securely</span>
+        </h1>
+
+        <p class="hero-description">
+          Never lose a memory again. Save images and videos from your friends' WhatsApp statuses directly to your
+          gallery with one click.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#download" class="btn btn-primary">
+            <span>📱</span>
+            <span>Download for Android</span>
+          </a>
+          <a href="#share" class="btn btn-secondary">
+            <span>🔗</span>
+            <span>Share with Friends</span>
+          </a>
+        </div>
+
+        <div class="hero-trust">
+          <div class="hero-trust-icons">
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+          </div>
+          <span>Trusted by 1M+ users worldwide</span>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img [src]="phoneMockupUrl" alt="StatusSaver App Interface" class="phone-mockup animate-float">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="features">
+  <div class="container">
+    <div class="features-header">
+      <p class="features-subtitle">Why Choose StatusSaver?</p>
+      <h2>Designed for simplicity and speed. We focus on the features that matter most to you.</h2>
+    </div>
+
+    <div class="features-grid">
+      @for (feature of features; track feature.id) {
+      <div class="feature-card">
+        <div class="feature-icon">
+          @if (feature.iconUrl) {
+          <img [src]="feature.iconUrl" [alt]="feature.title + ' icon'">
+          } @else {
+          <span [innerHTML]="feature.iconSvg"></span>
+          }
+        </div>
+        <h3 class="feature-title">{{ feature.title }}</h3>
+        <p class="feature-description">{{ feature.description }}</p>
+      </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">StatusSaver © 2024</div>
+
+      <ul class="footer-links">
+        <li><a routerLink="/privacy" class="footer-link">Privacy Policy</a></li>
+        <li><a href="#terms" class="footer-link">Terms of Service</a></li>
+        <li><a href="#contact" class="footer-link">Contact Us</a></li>
+      </ul>
+
+      <p class="footer-copyright">
+        Made with ❤️ for WhatsApp users everywhere
+      </p>
+    </div>
+  </div>
+</footer>
