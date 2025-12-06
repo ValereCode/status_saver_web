@@ -1,0 +1,87 @@
+<div class="terms-page">
+  <!-- Hero Section -->
+  <header class="terms-hero container">
+    <div class="terms-hero-content">
+      <div class="terms-badge">
+        <i class="fas fa-file-contract"></i>
+        <span>Legal</span>
+      </div>
+      <h1 class="terms-title">Terms of Use</h1>
+      <p class="terms-subtitle">
+        Simple, transparent rules for using StatusSaver.
+        <br>
+        We want you to enjoy the app safely and responsibly.
+      </p>
+
+      <div class="terms-meta">
+        <span><i class="far fa-clock"></i> Last Updated: {{ lastUpdated }}</span>
+        <span><i class="far fa-check-circle"></i> Effective Immediately</span>
+      </div>
+    </div>
+
+    <div class="terms-summary-card">
+      <h3><i class="fas fa-bolt"></i> The "Too Long; Didn't Read" Version</h3>
+      <ul class="terms-summary-list">
+        <li>You agree to use the app responsibly and legally.</li>
+        <li>We don't own the statuses you save (you and the creators do).</li>
+        <li>We respect intellectual property rights, and you should too.</li>
+        <li>The app is provided "as is" without warranty.</li>
+        <li>We're not affiliated with WhatsApp Inc.</li>
+      </ul>
+      <p class="terms-summary-footer">Read below for the full thrilling legal details!</p>
+    </div>
+  </header>
+
+  <!-- Detailed Sections -->
+  <main class="terms-content">
+    <div class="container terms-sections">
+      @for (section of sections; track section.id) {
+      <div class="terms-section" [class.terms-section--highlight]="section.highlight"
+        [class.terms-section--expanded]="isSectionExpanded(section.id)">
+
+        <button class="terms-section-header" (click)="toggleSection(section.id)"
+          [attr.aria-expanded]="isSectionExpanded(section.id)">
+          <div class="terms-section-header-content">
+            <span class="terms-section-icon">{{ section.icon }}</span>
+            <div class="terms-section-title-group">
+              <h3 class="terms-section-title">{{ section.title }}</h3>
+              <p class="terms-section-tldr">"{{ section.tldr }}"</p>
+            </div>
+          </div>
+          <span class="terms-section-toggle">
+            <i class="fas fa-chevron-down"></i>
+          </span>
+        </button>
+
+        @if (isSectionExpanded(section.id)) {
+        <div class="terms-section-body">
+          @for (paragraph of section.content; track $index) {
+          <p [innerHTML]="paragraph"></p>
+          }
+        </div>
+        }
+      </div>
+      }
+
+      <button class="terms-back-to-top" (click)="scrollToTop()">
+        <i class="fas fa-arrow-up"></i> Back to Top
+      </button>
+    </div>
+  </main>
+
+  <!-- Footer CTA -->
+  <section class="terms-cta">
+    <div class="container terms-cta-content">
+      <h2>Enjoy Using StatusSaver!</h2>
+      <p>Now that the legal stuff is out of the way, go save some memories.</p>
+      <div class="terms-cta-buttons">
+        <a routerLink="/" class="btn btn-primary">
+          <i class="fas fa-home"></i> Back to Home
+        </a>
+        <a routerLink="/privacy" class="btn btn-secondary">
+          <i class="fas fa-shield-alt"></i> Privacy Policy
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
